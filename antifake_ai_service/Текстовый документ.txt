@@ -1,0 +1,63 @@
+from pathlib import Path
+import shutil
+import cv2
+import numpy as np
+from tqdm import tqdm
+
+from app.roboflow_segmentation import crop_product_from_local_path
+
+SOURCE_DIR = Path(r"D:\Users\admin\IT-JAVA\диплом 2026\dataset\train")
+OUTPUT_DIR = Path(r"D:\Users\admin\IT-JAVA\диплом 2026\dataset_cropped\train")
+
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
+
+
+def save_rgb_image(image_rgb, output_path: Path):
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    image_bgr = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2BGR)
+
+    success, encoded = cv2.imencode(".jpg", image_bgr)
+
+    if not success:
+        raise RuntimeError(f"Не удалось сохранить файл: {output_path}")
+
+    encoded.tofile(str(output_path))
+
+
+def main():
+    if not SOURCE_DIR.exists():
+        raise RuntimeError(f"Исходная папка не найдена: {SOURCE_DIR}")
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    images = [
+        p for p in SOURCE_DIR.rglob("*")
+        if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS
+    ]
+
+    print(f"Найдено изображений: {len(images)}")
+    print(f"Источник: {SOURCE_DIR}")
+    print(f"Результат: {OUTPUT_DIR}")
+
+    for image_path in tqdm(images, desc="Cropping dataset"):
+        relative_path = image_path.relative_to(SOURCE_DIR)
+        output_path = OUTPUT_DIR / relative_path
+
+        try:
+            cropped_rgb = crop_product_from_local_path(image_path)
+            save_rgb_image(cropped_rgb, output_path)
+
+        except Exception as e:
+            print(f"\nОшибка с файлом: {image_path}")
+            print(f"Причина: {e}")
+
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(image_path, output_path)
+
+    print("\nГотово!")
+    print(f"Обрезанный датасет сохранён в: {OUTPUT_DIR}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+tensorflow
+numpy
+pillow
+requests
+pydantic
+python-multipart
+opencv-python
+inference-sdk
+python-dotenv

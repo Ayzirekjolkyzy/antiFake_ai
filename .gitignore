@@ -1,0 +1,33 @@
+.env
+*.env
+application.properties
+application.yml
+*.pem
+*.key
+
+# Java
+backend/target/
+*.jar
+
+# React
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# Python
+ai-service/venv/
+ai-service/__pycache__/
+*.pyc
+
+# AI data
+ai-service/models/
+ai-service/*.pt
+ai-service/*.pth
+ai-service/dataset/
+ai-service/dataset_cropped/
+ai-service/siamese_dataset/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
