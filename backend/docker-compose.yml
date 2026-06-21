@@ -1,0 +1,17 @@
+services:
+  postgres:
+    container_name: antifake_ai
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: ayzirek
+      POSTGRES_PASSWORD: 30012004@Aizka
+      PGDATA: /data/postgres
+      POSTGRES_DB: antifake_db
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres:
