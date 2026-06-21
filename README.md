@@ -627,34 +627,34 @@ POST /api/v1/images/crop-preview
 ## Screenshots
 
 ### Home Page
-![Home Page](docs/screenshots/01-home.png)
+![Home Page](docs/01-home.png)
 
 ### Product Catalog
-![Product Catalog](docs/screenshots/02-products-catalog.png)
+![Product Catalog](docs/02-products-catalog.png)
 
 ### Verification Form
-![Verification Form](docs/screenshots/03-verification-form.png)
+![Verification Form](docs/03-verification-form.png)
 
 ### Verification Result — Suspicious Product
-![Suspicious Result](docs/screenshots/04-fake-result.png)
+![Suspicious Result](docs/04-fake-result.png)
 
 ### User Verification History
-![User History](docs/screenshots/05-user-history.png)
+![User History](docs/05-user-history.png)
 
 ### Admin Dashboard
-![Admin Dashboard](docs/screenshots/06-admin-dashboard.png)
+![Admin Dashboard](docs/06-admin-dashboard.png)
 
 ### Admin Review Queue
-![Admin Review Queue](docs/screenshots/07-admin-verification-review.png)
+![Admin Review Queue](docs/07-admin-verification-review.png)
 
 ### Admin Product Manage
-![Admin Product Manage](docs/screenshots/08-admin-products.png)
+![Admin Product Manage](docs/08-admin-products.png)
 
 ### Admin Product Manage
-![Admin Brand Manage](docs/screenshots/09-admin-brand.png)
+![Admin Brand Manage](docs/09-admin-brand.png)
 
 ### Admin Review Queue
-![Admin Dataset Manage](docs/screenshots/10-admin-dataset-images.png)
+![Admin Dataset Manage](docs/10-admin-dataset-images.png)
 
 
 ## Notes
